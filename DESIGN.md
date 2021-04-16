@@ -32,4 +32,5 @@ This required us to change the **WorldMap** component in the front end along wit
 ### Censorer
 We implemented a censorer in the frontend and backend that checks all messages for prohibited phrases and replaces them with \*s before they are sent. We implemented it in both parts of the codebase so that it would censor words for players receiving messages (covered by the backend) and players sending messages (covered by the frontend).
 
-<img width="880" alt="designChart" src="https://user-images.githubusercontent.com/20538578/114900869-44f4dd80-9de2-11eb-92d7-27f27510a8d2.png">
+![image](https://user-images.githubusercontent.com/20538578/115088014-5078ff00-9edd-11eb-8201-f0df7099463c.png)
+
