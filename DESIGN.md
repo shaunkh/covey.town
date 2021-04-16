@@ -25,6 +25,7 @@ We have a chatbox that allows players to send both global and private messages. 
 
 #### Global message display over Players' heads
 Global messages are displayed over the head of the Player sending the message and will remain there for 5 seconds or until they send another message, whichever comes first.
+This required us to change the **WorldMap** component in the front end along with **App** so that we can use the messages state to keep track and display the messages on the map.
 
 ### Censorer
 We implemented a censorer in the frontend and backend that checks all messages for prohibited phrases and replaces them with \*s before they are sent. We implemented it in both parts of the codebase so that it would censor words for players receiving messages (covered by the backend) and players sending messages (covered by the frontend).
