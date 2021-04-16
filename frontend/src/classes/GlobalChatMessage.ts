@@ -1,5 +1,6 @@
 import AChatMessage from './AChatMessage';
 
+// Same class as backend
 export default class GlobalChatMessage extends AChatMessage {
 
   private _type: string;

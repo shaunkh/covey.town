@@ -1,5 +1,6 @@
 import RegExp from 'typescript-dotnet-commonjs/System/Text/RegularExpressions';
 
+// Holds censoring functionality for the front end. Same class as in the services folder in the backend
 export default class Censorer {
 
 

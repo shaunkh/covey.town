@@ -1,5 +1,6 @@
 import AChatMessage from './AChatMessage';
 
+// class is the same as in the backend
 export default class PrivateChatMessage extends AChatMessage {
 
   private _receiverID: string;
