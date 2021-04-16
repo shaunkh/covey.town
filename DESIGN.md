@@ -18,10 +18,12 @@ Our text chat component was implemented completely in parallel to the existing c
 
 We implemented socket endpoints so that the chat messages can be sent to the covey server and distributed amongst all players. Messages are stored in an instance of a CoveyTownController, where they can be easily rendered based on their own data.
 
+We added several methods to add these endpoints but didn't change any of the existing code in these classes. These classes include TownsServiceClient, CoveyTownController, CoveyTownsStore, CoveyTownRequestHandlers, and towns. For TownsServiceClient, TownsServiceClient, CoveyTownController, CoveyTownsStore and towns, the API endpoints were implemented in a similar way to the other previous endpoints. In CoveyTownRequestHandlers, the handlers were implemented in a similar way to previous ones before but in the the townSubscriptionHandler, we added socket endpoint for listening for player messages.
+
 ## Frontend Design Changes
 
 #### Chatbox
-We have a chatbox that allows players to send both global and private messages. Players can specify what kind of message they want to send using the "send global" and "send private" buttons. Private messages display the usernames of the Players involved alongside the message and are purple, while global messages display the username of the Player sending the message alongside the message itself and are green.
+We have a chatbox (class name is **Chat**) that allows players to send both global and private messages. Players can specify what kind of message they want to send using the "send global" and "send private" buttons. Private messages display the usernames of the Players involved alongside the message and are purple, while global messages display the username of the Player sending the message alongside the message itself and are green.
 
 #### Global message display over Players' heads
 Global messages are displayed over the head of the Player sending the message and will remain there for 5 seconds or until they send another message, whichever comes first.
