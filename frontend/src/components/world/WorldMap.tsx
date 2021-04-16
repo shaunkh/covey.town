@@ -588,6 +588,8 @@ export default function WorldMap(): JSX.Element {
       }
     }
 
+    // eslin-disable is used because it asks for players as a dependency and we don't want that to happen
+    // it causes bugs to occur if we do have it
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gameScene, messages]);
 
