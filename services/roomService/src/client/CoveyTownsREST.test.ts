@@ -6,7 +6,6 @@ import { nanoid } from 'nanoid';
 import { AddressInfo } from 'net';
 import CoveyTownsStore from '../lib/CoveyTownsStore';
 import addTownRoutes from '../router/towns';
-import PrivateChatMessage from '../types/PrivateChatMessage';
 import TownsServiceClient, { TownListResponse } from './TownsServiceClient';
 
 type TestTownData = {
@@ -256,7 +255,7 @@ describe('TownsServiceAPIREST', () => {
         });
         fail('Expected an error to be thrown by sendPrivatePlayerMessage');
       } catch (err) {
-
+        // expected
       }
 
       try {
@@ -267,7 +266,7 @@ describe('TownsServiceAPIREST', () => {
         });
         fail('Expected an error to be thrown by sendGlobalPlayerMessage');
       } catch (err) {
-
+        // expected
       }
     });
     it('Should not send a message with an invalid userID', async () => {
@@ -284,10 +283,10 @@ describe('TownsServiceAPIREST', () => {
 
       
       const testMessage1 = await apiClient.sendPrivatePlayerMessage({
-          coveyTownID: pubTown1.coveyTownID,
-          userIDFrom: 'xxxxxxx',
-          userIDTo: 'xxxxxxx',
-          message: 'test',
+        coveyTownID: pubTown1.coveyTownID,
+        userIDFrom: 'xxxxxxx',
+        userIDTo: 'xxxxxxx',
+        message: 'test',
       });
 
             
