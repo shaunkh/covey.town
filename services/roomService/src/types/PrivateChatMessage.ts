@@ -16,10 +16,12 @@ export default class PrivateChatMessage extends AChatMessage {
     this._type = 'private';
   }
 
+  // dynamic dispatch for getting type of message
   getType(): string {
     return this._type;
   }
 
+  // dynamic dispatch for getting reciever id if it has one
   getReceiverID(): string {
     return this._receiverID;
   }

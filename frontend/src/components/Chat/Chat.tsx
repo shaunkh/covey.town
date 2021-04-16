@@ -17,6 +17,11 @@ function Chat(): JSX.Element {
   const { userName, currentTownID, myPlayerID, players, apiClient, messages } = useCoveyAppState();
   const toast = useToast();
 
+  /**
+   * Helper function to return a color based on message type
+   * @param messageType given message type of either (i.e. global or private)
+   * @returns hexa color code for message type
+   */
   const setButtonColor = (messageType: string) => {
     if (messageType === 'global') {
       return '#38B2AC';
@@ -27,6 +32,7 @@ function Chat(): JSX.Element {
     return 'black';
   };
 
+  // Used for updating messages on screen when a player sends a message
   useEffect(() => {
     if (!messages) {
       toast({

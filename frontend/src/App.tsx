@@ -217,7 +217,7 @@ async function GameController(
   socket.on('playerDisconnect', (player: ServerPlayer) => {
     dispatchAppUpdate({ action: 'playerDisconnect', player: Player.fromServerPlayer(player) });
   });
-
+  // socket endpoint for both types of messages
   socket.on(
     'globalMessage',
     (msg: { _message: string; _senderID: string;}) => {
@@ -227,7 +227,6 @@ async function GameController(
           });
     },
   );
-
   socket.on('privateMessage', 
   (msg: { _message: string; _senderID: string; _receiverID: string }) => {
         dispatchAppUpdate({

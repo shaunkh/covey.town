@@ -1,4 +1,7 @@
  export default abstract class AChatMessage {
+
+  // this class is the same as in the backend
+
     private _message: string;
   
     private readonly _senderID: string;

@@ -12,6 +12,7 @@ export default class GlobalChatMessage extends AChatMessage {
     this._type = 'global';
   }
 
+  // dynamic dispatch for getting type of message
   getType(): string {
     return this._type;
   }

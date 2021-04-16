@@ -133,7 +133,12 @@ class CoveyGameScene extends Phaser.Scene {
     }
   }
 
-  // update messages for everyone
+  /**
+   * Updates messages  for every player when a player sends a message
+   * @param players current players
+   * @param msg msg that was sent
+   * @returns 
+   */
   updateMessages(players: Player[], msg: AChatMessage) {
     if (!this.ready) {
       this.players = players;
@@ -145,6 +150,13 @@ class CoveyGameScene extends Phaser.Scene {
     });
   }
 
+
+  /**
+   * Updates messages on the sprite on the player who sent the message
+   * @param player given player
+   * @param msg given message
+   * @returns 
+   */
   newMessage(player: Player, msg: AChatMessage) {
     const myPlayer = this.players.find(p => p.id === player.id);
 
@@ -568,6 +580,7 @@ export default function WorldMap(): JSX.Element {
     gameScene?.updatePlayersLocations(players);
   }, [players, deepPlayers, gameScene]);
 
+  // Occurs when a player sends a message so that it appears above the player's head
   useEffect(() => {
     if (messages && messages.length !== 0) {
       if (messages[messages.length - 1].getType() === 'global') {
