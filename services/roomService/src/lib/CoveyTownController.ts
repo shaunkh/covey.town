@@ -1,4 +1,5 @@
 import { customAlphabet, nanoid } from 'nanoid';
+import { emojify } from 'node-emoji';
 import Censorer from '../censorship/Censorer';
 import { UserLocation } from '../CoveyTypes';
 import AChatMessage from '../types/AChatMessage';
@@ -9,7 +10,6 @@ import PlayerSession from '../types/PlayerSession';
 import PrivateChatMessage from '../types/PrivateChatMessage';
 import IVideoClient from './IVideoClient';
 import TwilioVideo from './TwilioVideo';
-import { emojify } from 'node-emoji';
 
 const friendlyNanoID = customAlphabet('1234567890ABCDEF', 8);
 
@@ -18,7 +18,6 @@ const friendlyNanoID = customAlphabet('1234567890ABCDEF', 8);
  * can occur (e.g. joining a town, moving, leaving a town)
  */
 export default class CoveyTownController {
-
   get capacity(): number {
     return this._capacity;
   }
@@ -169,27 +168,29 @@ export default class CoveyTownController {
 
   /**
    * Sends a private message to the Player with the given ID in this town.
-   * 
+   *
    * @param userIDFrom The ID of the Player sending the message.
    * @param userIDTo   The ID of the Player receiving the message.
    * @param message    The message the Player is sending.
    */
   sendPrivatePlayerMessage(userIDFrom: string, userIDTo: string, message: string): void {
-    var messageAltered : PrivateChatMessage;
-    messageAltered = new PrivateChatMessage(emojify(Censorer.censorMessage(message)), userIDFrom, userIDTo);
+    const messageAltered = new PrivateChatMessage(
+      emojify(Censorer.censorMessage(message)),
+      userIDFrom,
+      userIDTo,
+    );
     this.messages.push(messageAltered);
     this._listeners.forEach(listener => listener.onPrivateMessage(messageAltered));
   }
 
   /**
    * Sends a global message to all Players in this town.
-   * 
+   *
    * @param userID  The ID of the Player sending the message.
    * @param message The message the Player is sending.
    */
   sendGlobalPlayerMessage(userID: string, message: string): void {
-    var messageAltered : GlobalChatMessage;
-    messageAltered = new GlobalChatMessage(emojify(Censorer.censorMessage(message)), userID);
+    const messageAltered = new GlobalChatMessage(emojify(Censorer.censorMessage(message)), userID);
     this.messages.push(messageAltered);
     this._listeners.forEach(listener => listener.onGlobalMessage(messageAltered));
   }
