@@ -11,7 +11,7 @@
 - **User Story 3:** Players that send inappropriate messages will have the inappropriate words in their messages censored.
 
   - If a player tries to send an inappropriate message, the "bad" words in the message will be automatically censored by replacing every letter in the word with a '\*'.
-  - For example, if a player wanted to send the message "I love Professor Bell!", the message everyone would see is "I love Professor \*\*\*\*!" (we used "bell" as a test word so testing wouldn't be full of more colorful language)
+  - For example, if a player wanted to send the message "I love Professor Bell", the message everyone would see is "I love Professor \*\*\*\*" (we used "bell" as a test word so testing wouldn't be full of more colorful language)
 
   ## Other Features
 
