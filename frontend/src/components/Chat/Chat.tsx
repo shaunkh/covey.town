@@ -69,6 +69,7 @@ function Chat(): JSX.Element {
         }
       }
     }
+    // This eslint-disable is necessary to get our code working because it needs players as a dependency but that causes issues with the chat box
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userName, messages]);
 
@@ -126,11 +127,6 @@ function Chat(): JSX.Element {
           coveyUserID: myPlayerID,
           message: emojifiedInput,
         });
-        // setMessagesState([
-        //   ...messagesState,
-        //   { key: nanoid(), userName, color: setButtonColor('global'), message: emojifiedInput },
-        // ]);
-        // do toasts if message is not sent
         setInput('');
       } catch (err) {
         toast({
