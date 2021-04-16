@@ -152,7 +152,6 @@ describe('CoveyTownController', () => {
       await testingTown.addPlayer(player1);
       await testingTown.addPlayer(player2);
       mockListeners.forEach(listener => testingTown.addTownListener(listener));
-      const message = new PrivateChatMessage('hello', player1.id, player2.id);
       testingTown.sendPrivatePlayerMessage(player1.id, player2.id, 'hello');
       expect(testingTown.players.length).toBe(2);
       expect(testingTown.messages.length).toBe(1);
@@ -291,7 +290,7 @@ describe('CoveyTownController', () => {
       const emojifiedMessage4 = new GlobalChatMessage('🤠', player1ID);
       testingTown.sendGlobalPlayerMessage(player1ID, message4.message);
       const message5 = new GlobalChatMessage(':fae_with_cowboy_hat:', player1ID);
-      const emojifiedMessage5 = new GlobalChatMessage(':fae_with_cowboy_hat:', player1ID)
+      const emojifiedMessage5 = new GlobalChatMessage(':fae_with_cowboy_hat:', player1ID);
       testingTown.sendGlobalPlayerMessage(player1ID, message5.message);
       const message6 = new GlobalChatMessage('hey howdy hey :face_with_cowboy_hat: :face_with_cowboy_hat: my names Woody', player1ID);
       const emojifiedMessage6 = new GlobalChatMessage('hey howdy hey 🤠 🤠 my names Woody', player1ID);
